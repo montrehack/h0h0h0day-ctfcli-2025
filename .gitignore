@@ -1,0 +1,16 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+
+# Our secrets
+/env.sh
+/.secrets/
+
+
+# CTFcli integration
+.ctf/
+venv/
+
+# VSCode
+.vscode/
