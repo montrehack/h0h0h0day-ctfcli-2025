@@ -1,0 +1,6 @@
+services:
+  web:
+    build: ./web
+    ports:
+    - 7000:5000
+    restart: always

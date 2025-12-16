@@ -15,5 +15,7 @@ flags:
   - FLAG{LEA_THE_MONAD_ROSE}
 
 files:
-  - FollowingFreezingTracks.zip
+  - ErgoPath.png  
+  - PathOfTheCricket.png
+  - README.md
 

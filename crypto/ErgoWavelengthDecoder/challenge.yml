@@ -16,5 +16,6 @@ flags:
   - FLAG{0833c027a4ec7e662d83fefd5120875a030aebcd8bc9261a105d1d1e457e249b}
 
 files:
-  - ErgoWavelengthDecoder.zip
+  - puppet_encryption.py  
+  - README.md
 

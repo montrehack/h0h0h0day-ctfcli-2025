@@ -8,4 +8,4 @@ flags:
       - FLAG-1239de641f2be074675e9156Hello
 
 files:
-      - machine.ps1
+      - Machine.ps1

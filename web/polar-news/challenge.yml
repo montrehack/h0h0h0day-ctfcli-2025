@@ -1,0 +1,19 @@
+name: Polar News ❄️📰
+author: Linkster78
+category: Web
+
+description: |
+  For those who like their news with a side of jank...
+
+  Flag format: `h0h0h0\{[\w_]+\}`
+
+connection_info: http://challenges.montrehack.ca:7000
+
+type: standard
+value: 250
+
+flags:
+  - h0h0h0{0h_my_0h_my_e9e324f3}
+
+files:
+  - polar-news.tar.gz

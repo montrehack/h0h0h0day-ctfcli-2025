@@ -1,9 +1,10 @@
 name: "Gift injection"
 author: "Crémond"
 description: |
-As it is the tradition each year, elves work hard to prepare the gifts following Santa's ULTRA SECURE Gift Assignment Portal. As a hard working elf yourself, you cannot wait to see if you will finally receive the gift of your dreams, or if you will receive your usual worthless gift. Maybe there's a way to arrange that yourself...
+  As it is the tradition each year, elves work hard to prepare the gifts following Santa's ULTRA SECURE Gift Assignment Portal. As a hard working elf yourself, you cannot wait to see if you will finally receive the gift of your dreams, or if you will receive your usual worthless gift. Maybe there's a way to arrange that yourself...
 
-connection_info:
+connection_info: http://challenges.montrehack.ca:5000
+
 category: Web
 tags:
   - web

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polar News</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Polar News ❄️📰</h1>
+    </header>
+
+    <main>
+        {% if articles %}
+        <hr>{% endif %}
+        {% for article in articles %}
+        <div class="article">
+            <div>
+                {% if article.thumbnail %}
+                <img src="{{ article.thumbnail }}">
+                {% endif %}
+                <a href="{{ article.link }}" class="link-bare">
+                    <h3>{{ article.title | safe }}</h3>
+                </a>
+                <p>{{ article.description | safe }}</p>
+            </div>
+        </div>
+        <hr>
+        {% else %}
+        <p>No articles yet. Try adding a news source!</p>
+        {% endfor %}
+    </main>
+
+    <footer>
+        <form method="post" action="{{ url_for('add_source') }}">
+            <h2>Add a news source</h2>
+            <select name="source_id">
+                <option value="0" selected>LaPresse</option>
+                <option value="1">Le Journal de Montréal</option>
+                <option value="2">Le Devoir</option>
+                <option value="3">The New York Times</option>
+                <option value="4">PortSwigger Research</option>
+                <option value="5">watchTowr Labs</option>
+            </select>
+            <button type="submit">Add source</button>
+        </form>
+        <a href="/clear-sources">Clear news sources</a>
+    </footer>
+    </header>
+</body>
+
+</html>

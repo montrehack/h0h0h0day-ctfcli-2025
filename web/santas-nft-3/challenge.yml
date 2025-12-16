@@ -1,4 +1,3 @@
----
 name: "NFT 3/3 - And in the darkness bind them"
 
 category: Web
@@ -6,8 +5,6 @@ category: Web
 solve: "use decrypt-flag.js"
 
 connection_info: http://159.89.118.215/
-
-requirements: "NFT 2/3 - One Amulet to bring them all"
 
 description: |
   You know have the spell... You read it to understand where and how you can get the Amulet of recall 📿✨. This trinket seems to just be an old hard drive on a necklace, strong neck on that elf.

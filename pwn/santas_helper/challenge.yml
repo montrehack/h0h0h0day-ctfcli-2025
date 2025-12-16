@@ -9,7 +9,7 @@ tags:
   - pwn
 
 files:
-- public/chal
+- chal
 
 value: 200
 flags:

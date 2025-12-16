@@ -8,4 +8,4 @@ flags:
       - flag{flag-youvebeengood}
 
 files:
-      - elfonthewire.pcap
+      - elfonthewire.pcapng

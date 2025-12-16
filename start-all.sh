@@ -48,3 +48,7 @@ pushd web/santa-gift-ctf
     sudo docker compose up -d
 popd
 
+
+pushd web/polar-news
+    sudo docker compose up -d
+popd
