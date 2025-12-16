@@ -9,46 +9,46 @@ pushd pwn/santas_helper
 popd
 
 
-pushd crypto/spew
-    sudo docker compose up -d
+pushd web/spew
+    sudo docker compose up -d --build
 popd
 
 
 pushd pwn/sneak_peek
-    sudo docker compose up -d
+    sudo docker compose up -d --build
 popd
 
 
 pushd web/naughty_csp
-    sudo docker compose up -d
+    sudo docker compose up -d --build
 popd
 
 
 pushd web/santavault
-    sudo docker compose up -d
+    sudo docker compose up -d --build
 popd
 
 
 pushd web/xmaze_gift_0
-    sudo docker compose up -d
+    sudo docker compose up -d --build
 popd
 
 
 pushd web/elf_blackmarket
-    sudo docker compose up -d
+    sudo docker compose up -d --build
 popd
 
 
 pushd web/fastapi-file-vulnerabilty
-    sudo docker compose up -d
+    sudo docker compose up -d --build
 popd
 
 
 pushd web/santa-gift-ctf
-    sudo docker compose up -d
+    sudo docker compose up -d --build
 popd
 
 
 pushd web/polar-news
-    sudo docker compose up -d
+    sudo docker compose up -d --build
 popd

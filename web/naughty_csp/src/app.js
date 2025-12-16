@@ -33,6 +33,6 @@ app.use((req, res, next) => {
 
 app.use(require("./routes"));
 
-app.listen(3000, () =>
+app.listen(3000, "0.0.0.0", () =>
    console.log("Naughty CSP instance running on port 3000")
 );
