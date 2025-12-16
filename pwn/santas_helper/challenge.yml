@@ -3,7 +3,7 @@ author: "Atlantis11656"
 description: |
   Santa now offers a software to help him distribute gifts throughout your neighborhood! 
 
-connection_info: http://challenges.montrehack.ca:36087
+connection_info: http://challenges.montrehack.ca:1437
 category: pwn
 tags:
   - pwn

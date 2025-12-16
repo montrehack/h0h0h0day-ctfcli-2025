@@ -1,9 +1,0 @@
-services:
-  web:
-    build: ./src
-    restart: unless-stopped
-    ports:
-      - "36087:8080"
-    environment:
-      - FLAG=FLAG-5daf6835c9f67a6ae864e06f933e5c2e734716f9
-      - GIN_MODE=release

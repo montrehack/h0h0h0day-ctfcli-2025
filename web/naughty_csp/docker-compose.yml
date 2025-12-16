@@ -5,5 +5,5 @@ services:
     build: .
     container_name: naughty-csp
     ports:
-      - "34867:3000"
+      - "34867:34867"
     restart: unless-stopped

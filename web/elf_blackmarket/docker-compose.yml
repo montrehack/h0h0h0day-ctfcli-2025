@@ -17,7 +17,7 @@ services:
     environment:
       - OPENSEARCH_HOST=http://elasticsearch:9200
     ports:
-      - "8000:8000"
+      - "48000:8000"
     depends_on:
       elasticsearch:
         condition: service_healthy

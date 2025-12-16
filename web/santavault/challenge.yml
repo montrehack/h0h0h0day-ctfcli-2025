@@ -4,7 +4,7 @@ description: |
   Santa lost the password to his vault. Help him get it back.
   Flag format: flag-{something}
 
-connection_info: http://???:8000
+connection_info: http://challenges.montrehack.ca:18000
 category: Web
 tags:
   - web
