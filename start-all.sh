@@ -5,7 +5,7 @@
 
 pushd pwn/santas_helper
     sudo docker build -t santashelper .
-    sudo docker run -d -p 1437:1437 --name booleanwonderland booleanwonderland
+    sudo docker run -d -p 1437:1437 --name santashelper santashelper
 popd
 
 

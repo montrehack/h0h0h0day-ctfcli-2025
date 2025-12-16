@@ -4,4 +4,4 @@ services:
       context: .
     restart: unless-stopped
     ports:
-      - 0.0.0.0:8000:8000
+      - 0.0.0.0:18000:8000

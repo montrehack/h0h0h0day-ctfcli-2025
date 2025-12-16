@@ -2,7 +2,7 @@ name: "The Long Way Around"
 author: "sublime"
 description: |
   Some roads are straight, others wind quietly past where you were never meant to go.
-connection_info: ??? 
+connection_info: http://challenges.montrehack.ca:8000
 category: Web
 tags:
   - web
