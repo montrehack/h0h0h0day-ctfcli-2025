@@ -1,7 +1,7 @@
 ---
 name: "NFT 3/3 - And in the darkness bind them"
 
-category: web
+category: Web
 
 solve: "use decrypt-flag.js"
 

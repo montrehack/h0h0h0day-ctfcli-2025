@@ -3,12 +3,11 @@ author: "sublime"
 description: |
   Some roads are straight, others wind quietly past where you were never meant to go.
 connection_info: ??? 
-category: web
+category: Web
 tags:
   - web
   - appsec
   - filesystem
-image: .
 value: 200
 flags:
   - flag{0tt3ntion_t0_f1l3_tr4v3rsal}

@@ -7,7 +7,6 @@ connection_info: http://challenges.montrehack.ca:36087
 category: pwn
 tags:
   - pwn
-image: .
 
 files:
 - public/chal

@@ -6,11 +6,10 @@ description: |
   Flag format: `FLAG_3_[a-zA-Z0-9_]*`
 
 connection_info: http://challenges.montrehack.ca:25032
-category: web
+category: Web
 tags:
   - web
   - game
-image: .
 value: 350
 flags:
   - FLAG_3_i_h4te_SQL_iNj3CtIon

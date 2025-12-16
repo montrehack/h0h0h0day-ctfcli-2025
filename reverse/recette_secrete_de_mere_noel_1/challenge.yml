@@ -1,6 +1,6 @@
 name: "Recette secrete de Mere Noel 1"
 author: "majkiwi"
-category: reverse
+category: Reverse
 description: |
     FR: Mère Noël utilise un programme qui prend une clé secrète en entrée, et sort une recette, mais elle l'a oubliée!
     Peux-tu l'aider à retrouver la clé donnée au programme recipe (ou recipe.exe, équivalent pour Windows), qui a mené à la recette secret_recipe.log?

@@ -1,12 +1,13 @@
 name: "Haunted Arcade"
 author: "Skye"
-category: steg
+category: Steganography
 tags:
   - steg
 value: 100
 description: |
   A strange image has been circulating on retro gaming forums. Some claim it holds secrets from a long-forgotten arcade. Can you uncover what's hidden inside?
 difficulty: easy
-flag: flag{g00d_j0b_98BMGH912}
+flags:
+  - flag{g00d_j0b_98BMGH912}
 files:
   - haunted_arcade.png

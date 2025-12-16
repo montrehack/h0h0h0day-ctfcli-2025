@@ -5,12 +5,11 @@ description: |
   Flag format: flag-{something}
 
 connection_info: http://???:8000
-category: web
+category: Web
 tags:
   - web
   - wasm
   - linux
-image: .
 value: 100
 flags:
   - flag-i_use_linux_compiled_in_wasm_in_my_browser_btw

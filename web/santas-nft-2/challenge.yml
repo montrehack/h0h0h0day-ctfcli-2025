@@ -1,7 +1,7 @@
 ---
 name: "NFT 2/3 - One Amulet to bring them all"
 
-category: web
+category: Web
 
 solve: "Use the vite trick to get a file on disk"
 

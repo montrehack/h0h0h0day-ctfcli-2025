@@ -4,11 +4,10 @@ description: |
 As it is the tradition each year, elves work hard to prepare the gifts following Santa's ULTRA SECURE Gift Assignment Portal. As a hard working elf yourself, you cannot wait to see if you will finally receive the gift of your dreams, or if you will receive your usual worthless gift. Maybe there's a way to arrange that yourself...
 
 connection_info:
-category: web
+category: Web
 tags:
   - web
   - sql
-image: .
 value: 200
 flags:
   - FLAG{d5j7u47wkfnmgb8749y6bm3049}

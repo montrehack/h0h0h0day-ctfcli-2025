@@ -5,10 +5,9 @@ description: |
   To make ends meet, some of them have started a side business selling toys online to naughty "kids" all around the world.
 
 connection_info: http://challenges.montrehack.ca:36087
-category: web
+category: Web
 tags:
   - web
-image: .
 value: 200
 flags:
   - FLAG-2b42567a794646178227a6a62679274c

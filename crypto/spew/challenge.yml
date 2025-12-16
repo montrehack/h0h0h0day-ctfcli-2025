@@ -5,10 +5,9 @@ description: |
   the Christmas season. They crafted a flag to show their independence, but even that was censored.
 
 connection_info: http://challenges.montrehack.ca:36087
-category: web
+category: Web
 tags:
   - crypto
-image: ./src
 value: 200
 flags:
   - FLAG-5daf6835c9f67a6ae864e06f933e5c2e734716f9

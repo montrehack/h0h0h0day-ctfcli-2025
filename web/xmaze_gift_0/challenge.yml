@@ -6,11 +6,10 @@ description: |
   Flag format: `FLAG_0_[a-zA-Z0-9_]*`
 
 connection_info: http://challenges.montrehack.ca:25032
-category: web
+category: Web
 tags:
   - web
   - game
-image: .
 value: 100
 flags:
   - FLAG_0_w4th_a_S0NnY_D4Y

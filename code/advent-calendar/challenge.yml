@@ -1,6 +1,6 @@
 name: "Advent Calendar"
 author: "Jean Privat"
-category: sys
+category: Code
 description: Little ones quiver with the magic of Christmas drawing near. Brimming with hope, they measure time in heartbeats—counting days, minutes, and fleeting seconds.
 connection_info: ssh u@chals.hackin.ca -t advent-calendar
 value: 100
