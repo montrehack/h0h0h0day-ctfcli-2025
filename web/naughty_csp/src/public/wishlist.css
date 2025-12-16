@@ -1,0 +1,107 @@
+/* * --------------------------------------------------
+ * CHRISTMAS WISH LIST VIEW STYLES (FULLSCREEN)
+ * --------------------------------------------------
+ */
+:root {
+    /* Color Palette for Viewing */
+    --paper-white: #FFFFF0; /* Creamy white */
+    --ink-black: #303030;
+    --border-gold: #FFD700;
+    --festive-green: #008000;
+    --festive-red: #B30000;
+}
+
+/*
+ * --------------------------------------------------
+ * 1. Global & Background (Fullscreen Centering)
+ * --------------------------------------------------
+ */
+body {
+    background-color: var(--festive-green);
+    color: var(--ink-black);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    /* Adding a subtle star background pattern */
+    background-image: radial-gradient(var(--snow-white) 1px, transparent 0);
+    background-size: 40px 40px;
+}
+
+/*
+ * --------------------------------------------------
+ * 2. The "Wishlist Paper" Container (Maximized Focus)
+ * --------------------------------------------------
+ */
+.wishlist-paper {
+    background-color: var(--paper-white);
+    text-align: left;
+    padding: 50px; /* Increased padding for more "paper" feel */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    
+    /* Decorative double border */
+    border: 5px solid var(--border-gold);
+    outline: 2px solid var(--festive-red);
+    outline-offset: -10px;
+
+    /* Subtle texture and light tilt */
+    transform: rotateZ(-0.5deg);
+
+    /* Maximize width but keep it readable */
+    width: 90%; 
+    max-width: 900px;
+    min-height: 70vh; /* Ensure it occupies substantial vertical space */
+}
+
+h2 {
+    /* "Dear Santa" section */
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: var(--festive-red);
+    border-bottom: 2px dashed var(--festive-green);
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    font-size: 1.8em;
+    text-align: left;
+}
+
+/*
+ * --------------------------------------------------
+ * 3. Wishlist Content
+ * --------------------------------------------------
+ */
+#wishlist {
+    font-family: 'Comic Sans MS', 'cursive', sans-serif;
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: var(--ink-black);
+    padding: 0 10px;
+    white-space: pre-wrap; 
+}
+
+.signature {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid var(--ink-black);
+    text-align: right;
+    font-family: 'Brush Script MT', 'cursive', sans-serif;
+    font-size: 1.5em;
+    color: var(--festive-green);
+}
+
+/*
+ * --------------------------------------------------
+ * 4. Media Query
+ * --------------------------------------------------
+ */
+@media (max-width: 600px) {
+    .wishlist-paper {
+        padding: 25px;
+        outline-offset: -5px;
+        min-height: 80vh;
+    }
+}

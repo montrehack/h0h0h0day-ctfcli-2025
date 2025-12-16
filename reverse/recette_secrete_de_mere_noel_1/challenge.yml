@@ -1,0 +1,22 @@
+name: "Recette secrete de Mere Noel 1"
+author: "majkiwi"
+category: reverse
+description: |
+    FR: Mère Noël utilise un programme qui prend une clé secrète en entrée, et sort une recette, mais elle l'a oubliée!
+    Peux-tu l'aider à retrouver la clé donnée au programme recipe (ou recipe.exe, équivalent pour Windows), qui a mené à la recette secret_recipe.log?
+    En guise de remerciement, elle promet de partager l'ingrédient secret de ses biscuits!
+    -
+    EN: Miss Claus uses a program that takes a secret key as input, and outputs a recipe, but she forgot it!
+    Can you help her find the key she had to input to the recipe program (or recipe.exe, equivalent for Windows), that led to the secret_recipe.log?
+    She promised she will share her cookies' secret ingedient in return!
+
+value: 100
+
+flags:
+    - flag{l_ingredient_secret_est_}
+
+files:
+    - files.zip
+
+tags:
+    - reverse

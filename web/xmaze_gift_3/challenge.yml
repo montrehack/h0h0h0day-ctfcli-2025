@@ -1,0 +1,17 @@
+name: "Xmaze Gift 3"
+author: "Hannibal119"
+description: |
+  Who was the first elf?
+
+  Flag format: `FLAG_3_[a-zA-Z0-9_]*`
+
+connection_info: http://challenges.montrehack.ca:25032
+category: web
+tags:
+  - web
+  - game
+image: .
+value: 350
+flags:
+  - FLAG_3_i_h4te_SQL_iNj3CtIon
+version: "0.1"

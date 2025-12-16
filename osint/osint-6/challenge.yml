@@ -1,0 +1,23 @@
+﻿name: "LinkedIn gifts 6"
+author: "ali31415"
+category: OSINT
+description: |
+    I wonder how many flags you can find here : www.linkedin.com/in/julie31415
+
+value: 500
+type: standard
+
+flags:
+    - "flag006youst3almynam31st3alyourcr3d"
+
+tags:
+    - OSINT
+
+hints:
+    - {
+        content: "Coveo did great at last HF",
+        cost: 10
+    }
+
+state: visible
+version: "0.1"

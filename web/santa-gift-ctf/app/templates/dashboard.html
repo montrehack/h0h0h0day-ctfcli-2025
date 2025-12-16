@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Welcome, {{ username }}! 🎄</h2>
+
+{% if is_santa %}
+<h3>🎅 Santa Dashboard</h3>
+
+<h4>📋 Current Assignments:</h4>
+<table>
+    <tr>
+        <th>User ID</th>
+        <th>Username</th>
+        <th>Gift ID</th>
+        <th>Gift Name</th>
+    </tr>
+    {% for assignment in assignments %}
+    <tr>
+        <td>{{ assignment['elf_id'] }}</td>
+        <td>{{ assignment['username'] }}</td>
+        <td>{{ assignment['gift_id'] }}</td>
+        <td>{{ assignment['gift_name'] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h4>🎁 Available Gifts:</h4>
+<table>
+    <tr>
+        <th>Gift ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Value</th>
+    </tr>
+    {% for gift in gifts %}
+    <tr>
+        <td>{{ gift['id'] }}</td>
+        <td>{{ gift['name'] }}</td>
+        <td>{{ gift['description'] }}</td>
+        <td>${{ gift['value'] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% else %}
+<h3>🧝 Regular Elf Dashboard</h3>
+<h3>Your Gift Assignment:</h3>
+
+{% if gift %}
+    {% if gift['id'] == 8 %}
+        <div class="flag-container" style="border: 2px dashed red; padding: 20px; margin-bottom: 20px;">
+            <h2 style="color: green;">🎄 HO HO HO! JACKPOT! 🎄</h2>
+            <p>Here is your even better gift:</p>
+            <code>FLAG{d5j7u47wkfnmgb8749y6bm3049}</code>
+        </div>
+    {% endif %}
+    <table style="max-width: 500px;">
+    <tr>
+        <th>Gift</th>
+        <td>{{ gift['name'] }}</td>
+    </tr>
+    <tr>
+        <th>Description</th>
+        <td>{{ gift['description'] }}</td>
+    </tr>
+    <tr>
+        <th>Value</th>
+        <td>${{ gift['value'] }}</td>
+    </tr>
+</table>
+{% else %}
+<p>No gift assigned.</p>
+{% endif %}
+
+<p style="margin-top: 30px;">
+    <a href="{{ url_for('search') }}" class="btn">Search Gifts</a>
+</p>
+
+{% endif %}
+{% endblock %}

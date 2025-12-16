@@ -1,0 +1,23 @@
+﻿name: "LinkedIn gifts 4"
+author: "ali31415"
+category: OSINT
+description: |
+    I wonder how many flags you can find here : www.linkedin.com/in/julie31415
+
+value: 250
+type: standard
+
+flags:
+    - "FLAG004N0W4YY0UD0WNL04D3DTHISNIC3J0B"
+
+tags:
+    - OSINT
+
+hints:
+    - {
+        content: "Last Bsides was fun!",
+        cost: 10
+    }
+
+state: visible
+version: "0.1"

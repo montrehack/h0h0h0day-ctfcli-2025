@@ -1,0 +1,29 @@
+name: The Archival Printer
+author: pgrenaud
+type: standard
+
+description: |
+  For regulatory compliance purposes, we need to archive every message sent through the Discord server. To achieve this goal, we want to put in place a Discord bot that sends each messages to a receipt printer. Once the receipts are printed, they would be collected and stored in secured filing cabinets.
+  
+  For now, the bot has been enabled only on one channel, the #printer-bot channel, and we need your help to test this new solution. Could you run a few test cases for us? For instance, can you make sure that the solution is reliable and make sure that all edge cases are handled properly?
+  
+  We would like to complete the deployment of this solution before Christmas. Testing needs to be completed before the end of the day.
+  
+  Thank you for your assistance in this modern endeavor.
+  
+  https://discord.com/channels/689898994498797578/1444880678943461451
+category: misc
+tags:
+  - bot
+  - reverse
+
+value: 250
+flags:
+  - FLAG-PRINTER_DRIVER_NOT_FOUND
+hints:
+  - Did you think of all possible edge cases?
+  - Did you check your DMs?
+  - Did you follow the code properly?
+
+state: visible
+version: "0.1"

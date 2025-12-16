@@ -1,0 +1,26 @@
+---
+name: "NFT 1/3 - I love mint"
+
+category: web
+
+solve: "leak constants"
+
+connection_info: http://159.89.118.215
+
+description: |
+  Santa seems nice but he actually is a thief, you are pretty sure about that.
+  Nobody believes you, so you decide to eat a revenge flan 🍮 in a local inn.
+  A tiny shadow with a pointy hat waves at you from the other end. They want you to resteal a gift that Santa apparently stole from them. They say you need to find their grandpa's Amulet of Recall which allows to copy any item on Earth 📿✨!
+
+  But you only have 3 weeks left of funds and flans 🍮...
+
+  So, you reluctantly accepted, after all, everyone needs to eat, and you could expose the dirt on the beloved bearded guy.
+
+value: 20
+tags:
+  - web
+
+flags:
+  - "FLAG-1-Hi-I-Am-Santa-A-Nay-Fungible-Treasure-Expert"
+
+version: 0.1

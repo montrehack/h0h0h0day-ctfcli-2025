@@ -1,0 +1,13 @@
+name: This ain't a steganography challenge
+author: "Émilio Gonzalez (Res260)"
+category: Forensics
+description: >
+  This image was created using AI, then modified to hide a secret flag.
+  The flag was then removed from the image before being given to you. Can you find it?
+value: 100
+
+flags:
+      - FLAG-SalutLaGang
+
+files:
+      - ai_pitou.png

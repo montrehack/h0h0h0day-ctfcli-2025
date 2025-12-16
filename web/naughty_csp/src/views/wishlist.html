@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Wishlist</title>
+    <link rel="stylesheet" href="/style.css">
+    </head>
+<body>
+    <div class="wishlist-page-wrapper">
+        <header class="app-header">
+            <h1>Your Wishlist</h1> 
+        </header>
+
+        <main class="main-container">
+            <section class="edit-panel">
+                <h2>What do you wish for?</h2>
+                
+                <div id="message-area"></div>
+
+                <form id="wishlist-form" class="edit-form">
+                    <textarea name="item" rows="15" placeholder="Enter one item per line, or a nice long letter to Santa..."><%- wishlist || "" %></textarea>
+                    <button type="submit" class="primary-button">Save Wishlist</button>
+                </form>
+            </section>
+
+            <aside class="control-panel">
+                <h2>Options</h2>
+                
+                <div class="control-actions">
+                    <button id="view-public-btn" class="secondary-button" disabled>
+                        View wishlist overview
+                    </button>
+                    
+                    <button id="send-santa-btn" class="primary-button send-button">
+                        Send wishlist to Santa
+                    </button>
+                    
+                    <p class="logout-link"><a href="/logout">Logout</a></p>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script nonce="<%- nonce %>">
+        document.addEventListener('DOMContentLoaded', () => {
+            const messageArea = document.getElementById('message-area');
+            const wishlistForm = document.getElementById('wishlist-form');
+            const viewPublicBtn = document.getElementById('view-public-btn');
+            const sendSantaBtn = document.getElementById('send-santa-btn');
+            
+            let currentWishlistId = null;
+
+            function showMessage(type, message) {
+                messageArea.innerHTML = `
+                    <div class="message-alert ${type}">
+                        ${message}
+                    </div>
+                `;
+                setTimeout(() => {
+                    messageArea.innerHTML = '';
+                }, 5000);
+            }
+
+            async function fetchUserData() {
+                try {
+                    const response = await fetch('/me');
+                    const data = await response.json();
+
+                    if (response.ok && data.wishlistId) {
+                        currentWishlistId = data.wishlistId;
+                        
+                        viewPublicBtn.disabled = false;
+                        viewPublicBtn.onclick = () => {
+                            window.location.href = `/wishlist/${currentWishlistId}`;
+                        };
+                    } else {
+                        showMessage('error', data.message || 'Could not load user data.');
+                    }
+                } catch (error) {
+                    console.error('Fetch User Data Error:', error);
+                    showMessage('error', 'Failed to connect to the server.');
+                }
+            }
+            fetchUserData();
+
+            wishlistForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+
+                const form = event.target;
+                const formData = new FormData(form);
+                const bodyData = new URLSearchParams(formData).toString(); 
+                const saveButton = form.querySelector('button[type="submit"]');
+
+                saveButton.disabled = true;
+                saveButton.textContent = 'Saving...';
+
+                try {
+                    const response = await fetch('/wishlist', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: bodyData 
+                    });
+
+                    const data = await response.json(); 
+
+                    if (response.ok) {
+                        showMessage('success', data.message || 'Wishlist saved successfully!');
+                    } else {
+                        showMessage('error', data.message || 'Failed to save wishlist.');
+                    }
+
+                } catch (error) {
+                    console.error('Save Wishlist Error:', error);
+                    showMessage('error', 'A network error occurred while saving.');
+                } finally {
+                    saveButton.disabled = false;
+                    saveButton.textContent = 'Save Wishlist';
+                }
+            });
+
+            sendSantaBtn.addEventListener('click', async () => {
+                const originalText = sendSantaBtn.textContent;
+                sendSantaBtn.disabled = true;
+                sendSantaBtn.textContent = 'Sending wishlist to santa...';
+
+                try {
+                    const response = await fetch('/send');
+                    const data = await response.json(); 
+                    
+                    if (response.ok) {
+                        showMessage('success', data.message || 'Message sent! Santa is checking the list.');
+                    } else {
+                        showMessage('error', data.message || 'Failed to contact Santa\'s bot.');
+                    }
+                } catch (error) {
+                    console.error('Santa Bot Error:', error);
+                    showMessage('error', 'Network failure when contacting the North Pole.');
+                } finally {
+                    sendSantaBtn.disabled = false;
+                    sendSantaBtn.textContent = originalText;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

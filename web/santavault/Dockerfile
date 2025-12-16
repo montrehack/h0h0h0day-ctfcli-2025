@@ -1,0 +1,11 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+
+COPY ./src .
+
+ENV PYTHONUNBUFFERED=1
+
+STOPSIGNAL SIGKILL
+EXPOSE 8000
+ENTRYPOINT ["python", "-u", "server.py"]

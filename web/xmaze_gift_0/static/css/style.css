@@ -1,0 +1,470 @@
+/* --- Variables for Authentic Colors --- */
+:root {
+  --gb-body: #c0c0c0; /* Classic Grey */
+  --gb-screen-bg: #c0c0c0; /* The "Pea Soup" Green */
+  --gb-bezel: #505050; /* Dark Grey Bezel */
+  --gb-btn-red: #8f0a1e; /* A/B Buttons */
+  --gb-btn-dark: #222222; /* D-Pad */
+}
+
+body {
+  background-color: #202020; /* Dark background to make the console pop */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* --- The Console Shell --- */
+.gameboy {
+  background-color: var(--gb-body);
+  width: 600px; /* Increased width to fit bezel */
+  height: 900px; /* Increased height for controls */
+  border-radius: 20px 20px 60px 20px; /* Rounded bottom-right corner like real GB */
+  box-shadow: inset 3px 3px 5px rgba(255, 255, 255, 0.5),
+    /* Highlight */ inset -3px -3px 5px rgba(0, 0, 0, 0.2),
+    /* Shadow */ 10px 10px 30px rgba(0, 0, 0, 0.4); /* Drop Shadow */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  position: relative;
+}
+
+/* --- The Screen Bezel --- */
+.screen-area {
+  background-color: var(--gb-bezel);
+  width: 560px;
+  padding: 30px 20px 10px 20px; /* Top padding for "Dot Matrix" text */
+  border-radius: 15px 15px 40px 15px;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+/* The Red Battery Light */
+.power-light {
+  position: absolute;
+  top: 20px;
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  background-color: #ff0000;
+  border-radius: 50%;
+  box-shadow: 0 0 5px #ff3333;
+  z-index: 5;
+}
+.power-light::after {
+  content: "BATTERY";
+  color: #888;
+  font-size: 8px;
+  position: absolute;
+  top: -12px;
+  left: -8px;
+}
+
+.bezel-text {
+  color: #888; /* dull branding text */
+  font-weight: bold;
+  font-size: 10px;
+  width: 100%;
+  text-align: center;
+  border-top: 2px solid #222; /* The blue/purple lines on original */
+  border-bottom: 2px solid #222;
+  margin-bottom: 10px;
+  padding: 2px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* --- Your Game Grid (The LCD) --- */
+#grid {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  background-color: var(--gb-screen-bg);
+  box-shadow: inset 3px 3px 10px rgba(0, 0, 0, 0.3); /* Recessed screen look */
+  /* Render pixels crisply if you scale up */
+  image-rendering: pixelated;
+  overflow: hidden;
+}
+
+.cell {
+  width: 50px;
+  height: 50px;
+  /* border: 1px solid rgba(15, 56, 15, 0.05); Very faint grid lines */
+  float: left; /* Or use flex/grid inside your JS */
+  box-sizing: border-box;
+}
+
+#player {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  z-index: 10;
+  image-rendering: pixelated;
+}
+
+/* --- Logos --- */
+.montrehack-logo {
+  font-family: "Preahvihear", sans-serif;
+  color: #303062;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.4);
+}
+
+/* --- Controls Layout --- */
+.controls {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+/* --- D-Pad --- */
+.d-pad {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.d-pad div {
+  background-color: var(--gb-btn-dark);
+  position: absolute;
+  border-radius: 4px;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.d-pad .center {
+  width: 40px;
+  height: 40px;
+  top: 40px;
+  left: 40px;
+  z-index: 2;
+}
+.d-pad .up {
+  width: 40px;
+  height: 40px;
+  top: 0;
+  left: 40px;
+}
+.d-pad .down {
+  width: 40px;
+  height: 40px;
+  bottom: 0;
+  left: 40px;
+}
+.d-pad .left {
+  width: 40px;
+  height: 40px;
+  top: 40px;
+  left: 0;
+}
+.d-pad .right {
+  width: 40px;
+  height: 40px;
+  top: 40px;
+  right: 0;
+}
+
+.d-pad .wasd-label {
+  position: absolute;
+  font-size: 12px;
+  color: lightgray;
+  font-weight: bold;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+
+/* Flashing animation for presses (can be triggered by :active or by adding .pressed via JS) */
+@keyframes gb-button-flash {
+  0% {
+    filter: brightness(1);
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
+    background-color: var(--gb-btn-red);
+    transform: translateY(0);
+  }
+  40% {
+    filter: brightness(1.8);
+    box-shadow: 0 8px 28px rgba(255, 90, 90, 0.9);
+    background-color: #ff4b4b;
+    transform: translateY(1px);
+  }
+  80% {
+    filter: brightness(1);
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
+    background-color: var(--gb-btn-red);
+    transform: translateY(0);
+  }
+  100% {
+    filter: none;
+    transform: translateY(0);
+  }
+}
+
+/* Apply the flash when pressing with mouse/touch (:active) or when JS adds .pressed.
+   Using 3 iterations gives a short, noticeable flash without staying on. */
+.btn-a:active,
+.btn-b:active,
+.btn-a.pressed,
+.btn-b.pressed {
+  animation: gb-button-flash 220ms ease-in-out 3;
+}
+
+/* Optional: give directional pad a subtler flash */
+@keyframes gb-dpad-flash {
+  0% {
+    filter: brightness(1);
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+  }
+  50% {
+    filter: brightness(1.4);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    transform: translateY(1px);
+  }
+  100% {
+    filter: brightness(1);
+    transform: translateY(0);
+  }
+}
+
+.d-pad div:active,
+.d-pad div.pressed {
+  animation: gb-dpad-flash 180ms ease-in-out 2;
+  /* provide a tiny visual feedback on press */
+}
+
+/* --- A/B Buttons --- */
+.action-buttons {
+  position: relative;
+  width: 140px;
+  height: 120px;
+  top: 20px;
+}
+
+.action-buttons > *,
+.d-pad > * {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.btn-a,
+.btn-b {
+  width: 50px;
+  height: 50px;
+  background-color: var(--gb-btn-red);
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
+}
+
+.btn-a {
+  right: 0;
+  top: 10px;
+}
+.btn-b {
+  right: 70px;
+  top: 30px;
+}
+
+.label-a,
+.label-b {
+  position: absolute;
+  color: lightgray;
+  font-weight: bold;
+  font-size: 14px;
+}
+.label-a,
+.label-b {
+  right: 20px;
+  bottom: 18px;
+}
+
+/* --- Start / Select --- */
+.start-select {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.start-select > .container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+
+.btn-start,
+.btn-select {
+  width: 70px;
+  height: 15px;
+  background-color: var(--gb-btn-dark);
+  border-radius: 10px;
+  transform: rotate(-25deg); /* The iconic slant */
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.label-start,
+.label-select {
+  font-size: 10px;
+  color: #303062;
+  font-weight: bold;
+  transform: rotate(-25deg);
+  letter-spacing: 1px;
+}
+/* Positioning helper for labels relative to their buttons */
+.start-select > div {
+  position: relative;
+  margin: 0 10px;
+}
+
+/* --- Speaker Grille --- */
+.speakers {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  width: 100px;
+  height: 80px;
+  background: repeating-linear-gradient(
+    -25deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 0, 0, 0.1) 10px,
+    rgba(0, 0, 0, 0.1) 14px
+  );
+}
+
+/* --- Heat Bar HUD --- */
+.heat-hud {
+  width: 500px; /* Matches your #grid width */
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px; /* Spacing between HUD and Grid */
+}
+
+.hud-label {
+  color: #8b8b8b; /* Matches the bezel text color */
+  font-weight: bold;
+  font-size: 14px;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+}
+
+#heat-bar {
+  display: flex;
+  gap: 4px; /* Space between flames */
+}
+
+.pip {
+  font-size: 24px;
+  line-height: 1;
+  filter: drop-shadow(0px 0px 2px rgba(255, 0, 0, 0.5));
+  transition: filter 0.2s ease;
+}
+
+/* Add this class to a .pip using JS to make it look "empty" */
+.pip.empty {
+  filter: grayscale(100%) opacity(0.2);
+}
+
+/* --- Message Box --- */
+#message-box {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(210, 180, 140, 0.85); /* sandy / dust-like tone */
+  border: 2px solid rgba(160, 130, 80, 0.9);
+  border-radius: 10px;
+  padding: 10px 20px;
+  max-width: 80%;
+  text-align: center;
+  display: none; /* Hidden by default */
+  z-index: 20;
+}
+
+#ancestors {
+  position: relative;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(210, 180, 140, 0.85); /* sandy / dust-like tone */
+  border: 2px solid rgba(160, 130, 80, 0.9);
+  border-radius: 10px;
+  padding: 10px 20px;
+  max-width: 80%;
+  text-align: center;
+  display: none; /* Hidden by default */
+  z-index: 20;
+}
+
+#message-text {
+  color: #000000;
+  font-size: 14px;
+  font-family: sans-serif;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: bottom;
+  max-width: 100%;
+  /* ensure positioned ancestor for the slow pseudo-element */
+  position: relative;
+}
+
+/* Add the class "slow-typing" when you update the text (remove & re-add to retrigger) */
+#message-text.slow-typing {
+  /* typing (step animation gives a typewriter feel) and a blinking caret */
+  animation: gb-typing 2.6s steps(40, end) 1, gb-caret 0.1s step-end infinite;
+  border-right: 2px solid rgba(0, 0, 0, 0.85); /* caret */
+  box-sizing: content-box;
+}
+
+/* Keyframes for the typing (max-width in ch gives character-based reveal) */
+@keyframes gb-typing {
+  from {
+    max-width: 0ch;
+  }
+  to {
+    max-width: 50ch;
+  } /* adjust to expected max characters of your messages */
+}
+
+#instruction, .instruction {
+  color: #333333;
+  font-size: 8px;
+  margin-top: 8px;
+}
+
+/* Blinking caret animation */
+@keyframes gb-caret {
+  0%,
+  100% {
+    border-color: rgba(0, 0, 0, 0.85);
+  }
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Highlighted tile border */
+.highlighted {
+  border: 2px solid #553c3c;
+}

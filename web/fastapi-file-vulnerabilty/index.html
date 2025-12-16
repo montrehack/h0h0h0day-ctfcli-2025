@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Upload / Download</title>
+</head>
+<body>
+    <h2>Upload image</h2>
+
+    <form id="uploadForm">
+        <input type="file" id="fileInput" name="file" required />
+        <button type="submit">Upload</button>
+    </form>
+
+    <p id="uploadResult"></p>
+
+    <hr />
+
+        <!--     <h2>Download image by name</h2> -->
+
+        <!--    <input type="text" id="filename" placeholder="image > filename" /> -->
+        <!--    <button onclick="downloadImage()">Download</button> -->
+
+    <hr />
+
+    <h2>Available images</h2>
+    <ul id="imageList"></ul>
+
+    <script>
+        async function loadImages() {
+            const res = await fetch("/images");
+            const images = await res.json();
+
+            const list = document.getElementById("imageList");
+            list.innerHTML = "";
+
+            images.forEach(name => {
+                const li = document.createElement("li");
+                const link = document.createElement("a");
+
+                link.href = "/image?name=" + encodeURIComponent(name);
+                link.textContent = name;
+                link.download = name;
+
+                li.appendChild(link);
+                list.appendChild(li);
+            });
+        }
+
+        loadImages();
+
+        const form = document.getElementById("uploadForm");
+        const result = document.getElementById("uploadResult");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const fileInput = document.getElementById("fileInput");
+            const formData = new FormData();
+            formData.append("file", fileInput.files[0]);
+
+            const response = await fetch("/upload", {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await response.json();
+            result.textContent = "Uploaded: " + data.filename;
+
+            loadImages();
+        });
+
+//         function downloadImage() {
+//             const name = document.getElementById("filename").value;
+//             if (!name) return;
+// 
+//             window.location.href = "/image?name=" + encodeURIComponent(name);
+//         }
+    </script>
+</body>
+</html>

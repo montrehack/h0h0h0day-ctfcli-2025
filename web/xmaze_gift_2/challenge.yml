@@ -1,0 +1,17 @@
+name: "Xmaze Gift 2"
+author: "Hannibal119"
+description: |
+  Thank you for finding Santa's lost Xmaze Gift!
+
+  Flag format: `FLAG_2_[a-zA-Z0-9_]*`
+
+connection_info: http://challenges.montrehack.ca:25032
+category: web
+tags:
+  - web
+  - game
+image: .
+value: 400
+flags:
+  - FLAG_2_n4me_is_4_B4D_s33d
+version: "0.1"

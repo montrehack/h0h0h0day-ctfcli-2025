@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HoHoHo Blackmarket</title>
+  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Santa's Elves Blackmarket</h1>
+    <p>For naughty hackers to buy toys. Search the catalog.</p>
+  </header>
+  <main>
+    <input id="searchBox" type="search" name="q" 
+        placeholder="Search toys..." 
+        hx-get="/search" hx-target="#results"
+        hx-trigger="input changed delay:300ms"
+        />
+    <section id="results">
+      <!-- results will load here -->
+    </section>
+  </main>
+  <footer>
+    <small>HoHoHo © Santa's elves</small>
+  </footer>
+</body>
+</html>

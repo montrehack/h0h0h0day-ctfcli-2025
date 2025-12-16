@@ -1,0 +1,6 @@
+services:
+  xmaze:
+    build: .
+    restart: unless-stopped
+    ports:
+      - 25032:25032

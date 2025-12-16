@@ -1,0 +1,13 @@
+name: Santa's Secret Journal
+author: "Wills"
+category: Forensics
+description: |
+    Santa has been busy working on his naughty and nice list. Here’s his private journal, it may contain clues about the list he’s been working on...
+
+value: 100
+
+flags:
+      - FLAG{H4V3_Y0U_B33N_N4UGH7Y_0R_N1C3?_95eea82539aa6943}
+
+files:
+      - santas-secret-journal.zip

@@ -1,0 +1,17 @@
+name: "S.P.E.W"
+author: "talgarr"
+description: |
+  The Society for the Promotion of Elfish Welfare (S.P.E.W.) is outrage of the abundance of elfish exploitation during
+  the Christmas season. They crafted a flag to show their independence, but even that was censored.
+
+connection_info: http://challenges.montrehack.ca:36087
+category: web
+tags:
+  - crypto
+image: ./src
+value: 200
+flags:
+  - FLAG-5daf6835c9f67a6ae864e06f933e5c2e734716f9
+files:
+  - chall.zip
+version: "0.1"

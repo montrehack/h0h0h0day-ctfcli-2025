@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- See https://github.com/joelseverin/linux-wasm for the original source code. -->
+  <!-- SPDX-License-Identifier: GPL-2.0-only -->
+
+  <script>
+    // Append ?v=-1 to the URL to cache-bust smug browsers that ignore your Cache-Control headers.
+    let wasm_linux_version = parseInt(new URLSearchParams(document.location.search).get("v") || 1);
+    wasm_linux_version = (wasm_linux_version < 0) ? (+new Date()) : wasm_linux_version;
+    document.write("<l" + "ink rel=\"stylesheet\" href=\"bright.css?v=" + wasm_linux_version + "\">");
+    document.write("<l" + "ink rel=\"stylesheet\" href=\"xterm.css?v=" + wasm_linux_version + "\">");
+    document.write("<scr" + "ipt src=\"linux.js?v=" + wasm_linux_version + "\"></scr" + "ipt>");
+    document.write("<scr" + "ipt src=\"xterm.js?v=" + wasm_linux_version + "\"></scr" + "ipt>");
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      const term = new Terminal({ 
+        theme: { background: "#013425", foreground: "#FF0000" },
+        cursorBlink: true,
+        fontSize: 24,
+        rows: Math.floor(document.body.clientHeight / 27)
+      });
+      term.open(document.getElementById("terminal"));
+
+      // Focus the terminal
+      term.focus();
+
+      const log = (text) => term.write(("\x1B[2m" + text + "\x1B[0m\n").replaceAll("\n", "\r\n"));
+      const console_write = (data) => term.write(data);  // Pre-decoded UTF-8 data.
+
+      // This is needed for SharedArrayBuffer on modern browsers.
+      if (!window.crossOriginIsolated) {
+        log("Error: Server did not set correct cross-origin-isolated headers.");
+        // Keep going though, it might work in some environments...
+      }
+
+      try {
+        const worker_url = "linux-worker.js?v=" + wasm_linux_version;
+
+        const vmlinux = await WebAssembly.compileStreaming(fetch("vmlinux.wasm?v=" + wasm_linux_version));
+
+        // Boot on 3 CPUs, we will bring up more later on as needed.
+        const boot_cmdline =
+          "maxcpus=3 nohz_full=0,2-63 root=/dev/ram0 rootfstype=ramfs init=/init console=hvc console=ttyS0";
+
+        const initrd_request = await fetch("initramfs.cpio.gz?v=" + wasm_linux_version);
+        if (!initrd_request.ok) {
+          throw new Error("Failed to fetch initrd from server, status: " + initrd_request.status);
+        }
+        const initrd = await initrd_request.arrayBuffer();
+
+        const os = await linux(worker_url, vmlinux, boot_cmdline, initrd, log, console_write);
+        term.onData(data => os.key_input(data));
+      } catch (error) {
+        log("Linux/Wasm failed with (" + error.name + "): " + error.message + "\n" + error.stack);
+        throw error;
+      }
+    }, false);
+  </script>
+</head>
+
+<body>
+  <div id="terminal" tabindex="0"></div>
+</body>

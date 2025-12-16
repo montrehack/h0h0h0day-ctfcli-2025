@@ -1,0 +1,12 @@
+/* SPDX-License-Identifier: GPL-2.0-only */
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  letter-spacing: 0.4px;
+  color: black;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  background-color: #013425;
+}

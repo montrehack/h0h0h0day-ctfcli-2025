@@ -1,0 +1,11 @@
+name: Password Verify
+author: "._."
+category: reverse
+description: Can you find the right password?
+value: 100
+
+flags:
+  - PP{th1s_1s_my_sup3r_s3cur3_p4ssw0rd}
+
+files:
+  - password_verify.zip

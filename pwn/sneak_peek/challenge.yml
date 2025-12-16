@@ -1,0 +1,20 @@
+name: "Sleigh Ride"
+author: "Peph0h0"
+description: |
+  I've got snow in my eyes.
+  flag format: `h0h0h0{[a-zA-Z09_&]+}`
+
+connection_info: http://challenges.montrehack.ca:42069
+category: pwn
+tags:
+  - pwn
+  - strace
+  - seccomp
+value: 400
+flags:
+  - h0h0h0{Tr4c1ng_7hr0ugH_t3h_sn0w_&_s7e4lin_g1ft5_y0}
+files:
+  - seccomp.filter
+  - chal_dist
+
+version: "0.1"

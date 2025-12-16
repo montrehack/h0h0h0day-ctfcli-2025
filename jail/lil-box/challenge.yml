@@ -1,0 +1,29 @@
+﻿name: "lil box"
+author: "rkletr"
+category: jail
+description: |
+    simple lil lua sandbox
+
+    `nc merkletr.ee 31337`
+
+    flag format: `flag{.+}`
+value: 200
+type: standard
+
+flags:
+    - "flag{[[i-love-square-brackets]]}"
+
+tags:
+    - jail
+
+state: visible
+
+files:
+    - main.lua
+
+hints:
+    - "f() ~= (f())"
+    - "f[[this is a string]]"
+    - "i love metatables. fun fact: did you know strings all have the same metatable?"
+
+version: "0.1"

@@ -1,0 +1,318 @@
+/*
+ * --------------------------------------------------
+ * 1. Global Styles & Background
+ * --------------------------------------------------
+ */
+:root {
+    /* Define Christmas Color Palette */
+    --christmas-red: #B30000;
+    --christmas-green: #006633;
+    --snow-white: #F5F5F5;
+    --gold-accent: #FFD700;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --success-color: #008000;
+    --error-color: #CC0000;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--christmas-green);
+    color: var(--snow-white);
+    margin: 0;
+    min-height: 100vh;
+    /* Festive background pattern (subtle diagonal lines) */
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.05) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+}
+
+/* Auth Page Centering */
+body:has(.auth-card) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Wishlist Page Wrapper */
+.wishlist-page-wrapper {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/*
+ * --------------------------------------------------
+ * 2. Typography & Headers
+ * --------------------------------------------------
+ */
+h1 {
+    color: var(--gold-accent);
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px var(--christmas-red);
+    font-family: 'Brush Script MT', 'cursive', sans-serif; 
+}
+
+h2 {
+    color: var(--snow-white);
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--gold-accent);
+    padding-bottom: 5px;
+}
+
+
+/*
+ * --------------------------------------------------
+ * 3. Auth Card / Form (Reusable from Login/Register)
+ * --------------------------------------------------
+ */
+.auth-card {
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    padding: 20px 0; 
+    transition: transform 0.3s ease-in-out;
+}
+.auth-card:hover {
+    transform: perspective(1000px) rotateY(2deg) rotateX(1deg);
+}
+
+.auth-form {
+    background-color: var(--christmas-red);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-color),
+                0 0 0 5px var(--gold-accent); 
+    margin-bottom: 20px;
+}
+
+/* Input Fields (Auth) */
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid var(--christmas-red);
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: var(--snow-white);
+    color: var(--christmas-red);
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-form input[type="email"]:focus,
+.auth-form input[type="password"]:focus {
+    border-color: var(--gold-accent);
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/*
+ * --------------------------------------------------
+ * 4. Wishlist Page Layout (Two-Column Flexbox)
+ * --------------------------------------------------
+ */
+.main-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.edit-panel {
+    flex: 3;
+    background-color: var(--christmas-red);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-color),
+                0 0 0 5px var(--gold-accent);
+}
+
+.control-panel {
+    flex: 1;
+    background-color: var(--christmas-green);
+    border: 2px solid var(--gold-accent);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px var(--shadow-color);
+}
+
+.control-panel h2 {
+    border-color: var(--snow-white);
+}
+
+/* Textarea (Wishlist) */
+.edit-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid var(--christmas-green);
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: var(--snow-white);
+    color: var(--christmas-red);
+    font-size: 1em;
+    resize: vertical;
+    min-height: 300px;
+    transition: border-color 0.3s ease;
+}
+
+.edit-form textarea:focus {
+    border-color: var(--gold-accent);
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/*
+ * --------------------------------------------------
+ * 5. Buttons (Reusable Classes)
+ * --------------------------------------------------
+ */
+button { /* Base style for all buttons */
+    /* Resets for general buttons not in auth forms */
+    margin: 0;
+}
+
+.primary-button, .secondary-button, .auth-card button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+    margin-bottom: 15px; /* Added for control panel buttons */
+}
+
+/* Primary Button (Gold - Save/Send) */
+.primary-button, .auth-card button {
+    background-color: var(--gold-accent);
+    color: var(--christmas-red);
+    box-shadow: 0 4px 0 var(--christmas-red); 
+}
+
+.primary-button:hover, .auth-card button:hover {
+    background-color: #FFEA4D;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 var(--christmas-red);
+}
+
+/* Secondary Button (Red/Green Contrast - View Public Link) */
+.secondary-button {
+    background-color: var(--christmas-red);
+    color: var(--snow-white);
+    box-shadow: 0 4px 0 var(--christmas-green); 
+}
+
+.secondary-button:hover {
+    background-color: #D31010;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 var(--christmas-green);
+}
+
+.primary-button:active, .secondary-button:active, .auth-card button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 var(--christmas-red);
+}
+
+.primary-button:disabled, .secondary-button:disabled, .auth-card button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/*
+ * --------------------------------------------------
+ * 6. Messages and Links
+ * --------------------------------------------------
+ */
+/* Message Alert Section */
+#message-area {
+    min-height: 40px; 
+}
+.message-alert {
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid;
+    font-size: 0.9em;
+    opacity: 0.95;
+}
+
+.message-alert.success {
+    background-color: #E6FFE6;
+    color: var(--success-color);
+    border-color: var(--success-color);
+}
+
+.message-alert.error {
+    background-color: #FFE6E6;
+    color: var(--error-color);
+    border-color: var(--error-color);
+}
+
+/* General Link Styling */
+p {
+    color: var(--snow-white);
+    margin-top: 20px;
+    font-size: 0.95em;
+    text-align: center;
+}
+
+a {
+    color: var(--gold-accent);
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s ease;
+}
+
+a:hover {
+    border-bottom: 2px solid var(--gold-accent);
+    color: #FFEA4D;
+}
+
+.logout-link {
+    margin-top: 20px;
+    font-size: 0.9em;
+    text-align: center;
+}
+.logout-link a {
+    color: var(--gold-accent);
+}
+.logout-link a:hover {
+    text-decoration: underline;
+}
+
+/*
+ * --------------------------------------------------
+ * 7. Media Queries
+ * --------------------------------------------------
+ */
+@media (max-width: 800px) {
+    .main-container {
+        flex-direction: column; 
+    }
+
+    .edit-panel, .control-panel {
+        flex: auto;
+        width: 100%;
+    }
+    
+    .control-panel {
+        padding-top: 30px;
+    }
+}

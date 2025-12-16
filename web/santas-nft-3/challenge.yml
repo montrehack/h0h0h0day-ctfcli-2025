@@ -1,0 +1,26 @@
+---
+name: "NFT 3/3 - And in the darkness bind them"
+
+category: web
+
+solve: "use decrypt-flag.js"
+
+connection_info: http://159.89.118.215/
+
+requirements: "NFT 2/3 - One Amulet to bring them all"
+
+description: |
+  You know have the spell... You read it to understand where and how you can get the Amulet of recall 📿✨. This trinket seems to just be an old hard drive on a necklace, strong neck on that elf.
+  You could now use the Amulet to taste the sweet custardy flan for the first time or get the first memory of your parents' hugs. Or a ton of money, which buys flans 🍮.
+
+  You already read it twice and it seems that this code is useless... Unless?
+
+value: 125
+tags:
+  - web
+  - appsec
+
+flags:
+  - "FLAG-3-Santa-This-Amulet-is-M3m01zed-so-Y0U-dont-forg3t-the-m1lk"
+
+version: 0.1

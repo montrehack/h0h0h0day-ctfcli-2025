@@ -1,0 +1,24 @@
+---
+name: "Naughty CSP"
+author: willi34
+category: Web
+
+description: |
+  I wrote an application to create and send wishlists to santa this year. I can trust you haven't been naughty this year, right?
+  
+  PS : Santa loves cookies!
+  
+  Flag format : flag\{[a-zA-Z0-9_]+\}
+
+connection_info: "http://challenges.montrehack.ca:34867"
+
+value: 250
+  
+state: visible
+flags:
+  - type: static
+    content: flag{y0u_pwn3d_s4nt4_h0_h0_h0}
+    
+tags:
+  - "A: willi"
+  - "Client-Side"

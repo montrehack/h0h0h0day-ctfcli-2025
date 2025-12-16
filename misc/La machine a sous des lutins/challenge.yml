@@ -1,0 +1,11 @@
+name: La machine à sous des lutins
+author: "MinouLicorne"
+category: Code
+description: En tant que technicien TI, vous vous occupez du parc informatique du Village du Père Noël. Les lutins vous ont apporté un problème sensible, ils suspectent le père Noël d'avoir trafiqué la machine à sous se trouvant dans le lounge des lutins. Les lutins vous demandent d'investiguer. 
+value: 100
+
+flags:
+      - FLAG-1239de641f2be074675e9156Hello
+
+files:
+      - machine.ps1

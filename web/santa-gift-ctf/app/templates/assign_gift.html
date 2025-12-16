@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Gift Assignment - Santa{% endblock %}
+
+{% block header %}🎁 Gift Assignment Portal{% endblock %}
+
+{% block content %}
+
+    {% if not is_santa %}
+        <div class="error">
+            Only users with 'santa' privileges can access this feature!
+        </div>
+    {% else %}
+        <h2>🎅 Manage Gift Assignments</h2>
+        
+        {% if message %}
+            <div class="{{ message.type }}">{{ message.text }}</div>
+        {% endif %}
+
+        <form method="POST" action="{{ url_for('assign_gift') }}" style="border: 1px solid #0f3460; padding: 20px; border-radius: 4px; margin-bottom: 30px;">
+            <h3>Update Assignment</h3>
+            <label for="elf_id">User ID:</label>
+            <input id="elf_id" name="elf_id" required>
+            
+            <label for="gift_id">New Gift ID:</label>
+            <input id="gift_id" name="gift_id" required>
+            
+            <button type="submit">Update Assignment</button>
+        </form>
+        
+        <h3>Current Gift Assignments</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Elf ID</th>
+                    <th>Username</th>
+                    <th>Current Gift ID</th>
+                    <th>Current Gift Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for assignment in assignments %}
+                <tr>
+                <tr>
+                    <td>{{ assignment.elf_id }}</td>
+                    <td>{{ assignment.username }}</td>
+                    <td>{{ assignment.gift_id }}</td>
+                    <td>{{ assignment.gift_name }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h3>Available Gifts (Reference)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Value ($)</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for gift in gifts %}
+                <tr>
+                    <td>{{ gift.id }}</td>
+                    <td>{{ gift.name }}</td>
+                    <td>{{ gift.value }}</td>
+                    <td>{{ gift.description }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+{% endblock %}

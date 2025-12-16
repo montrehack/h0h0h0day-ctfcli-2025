@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%- username %>'s wishlist</title>
+    <link rel="stylesheet" href="/wishlist.css">
+</head>
+<body>
+    
+    <main class="wishlist-paper">
+        <h2>Dear Santa,</h2>
+
+        <p id="wishlist" data-content="<%- content %>"></p>
+        
+        <p class="signature">Best wishes,<br>Your biggest fan</p>
+    </main>
+
+    <script src="/parser.js"></script>
+    <script nonce="<%- nonce %>">
+        document.addEventListener("DOMContentLoaded", () => {
+            const wishlistEl = document.getElementById("wishlist");
+
+            let wishlist_content = wishlistEl.dataset.content;  
+
+            if (window.DOMPurify) {
+                wishlist_content = DOMPurify.sanitize(wishlist_content);
+            }
+
+            const formatted_content = wishlist_content.replace(/\n/g, '<br>');
+            wishlistEl.innerHTML = formatted_content;
+        });
+    </script>
+</body>
+</html>

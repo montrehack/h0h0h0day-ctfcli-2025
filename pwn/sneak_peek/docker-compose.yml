@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  sneak_peek:
+    build: .
+    restart: unless-stopped
+    ports:
+      - 42069:4444
+

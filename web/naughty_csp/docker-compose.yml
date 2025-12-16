@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    container_name: naughty-csp
+    ports:
+      - "34867:3000"
+    restart: unless-stopped

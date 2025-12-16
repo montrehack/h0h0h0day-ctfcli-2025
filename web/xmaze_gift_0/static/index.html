@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XMaze Gift</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="images/hat_.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Preahvihear&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="gameboy">
+      <div class="screen-area">
+        <div class="bezel-text">XMaze gift</div>
+
+        <div id="grid">
+          <img src="images/up.png" id="player" alt="player" />
+          <div id="message-box">
+            <div id="message-text"></div>
+            <div id="instruction" class="instruction">
+              Press E to continue...
+            </div>
+          </div>
+          <div id="ancestors"></div>
+        </div>
+
+        <div class="heat-hud">
+          <span class="hud-label">HEAT</span>
+          <div id="heat-bar">
+            <!-- Heat flames will be generated here -->
+          </div>
+        </div>
+      </div>
+
+      <div class="montrehack-logo">MontreHack's GAME BOY</div>
+
+      <div class="controls">
+        <div class="d-pad">
+          <div
+            class="up"
+            role="button"
+            tabindex="0"
+            onclick="movePlayer({key:'w'})"
+          >
+            <span class="wasd-label">W</span>
+          </div>
+          <div
+            class="right"
+            role="button"
+            tabindex="0"
+            onclick="movePlayer({key:'d'})"
+          >
+            <span class="wasd-label">D</span>
+          </div>
+          <div
+            class="down"
+            role="button"
+            tabindex="0"
+            onclick="movePlayer({key:'s'})"
+          >
+            <span class="wasd-label">S</span>
+          </div>
+          <div
+            class="left"
+            role="button"
+            tabindex="0"
+            onclick="movePlayer({key:'a'})"
+          >
+            <span class="wasd-label">A</span>
+          </div>
+          <div class="center"></div>
+        </div>
+
+        <div class="action-buttons">
+          <div
+            class="btn-a"
+            role="button"
+            tabindex="0"
+            onclick="interact({key:'q'})"
+          >
+            <div class="label-a">Q</div>
+          </div>
+          <div
+            class="btn-b"
+            role="button"
+            tabindex="0"
+            onclick="interact({key:'e'})"
+          >
+            <div class="label-b">E</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="start-select">
+        <div class="container">
+          <div class="btn-select"></div>
+          <div class="btn-start"></div>
+        </div>
+        <div class="container">
+          <div class="label-select">SELECT</div>
+          <div class="label-start">START</div>
+        </div>
+      </div>
+
+      <div class="speakers"></div>
+
+      <script src="js/const.js"></script>
+      <script src="js/vars.js"></script>
+      <script src="js/util.js"></script>
+      <script src="js/home.js"></script>
+      <script src="js/api.js"></script>
+      <script src="js/game.js"></script>
+      <script src="js/start.js"></script>
+      <script src="js/action.js"></script>
+    </div>
+  </body>
+</html>

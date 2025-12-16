@@ -1,0 +1,30 @@
+---
+name: "NFT 2/3 - One Amulet to bring them all"
+
+category: web
+
+solve: "Use the vite trick to get a file on disk"
+
+connection_info: http://159.89.118.215/
+
+requirements: "NFT 1/3 - I love mint"
+
+description: |
+  You finally have a glimpse on the Nay Fungible Treasure factory 🏭🔐.
+  This clandestine place where people can mint memories for their loved ones, at a price.
+
+  The little elves cry during their shift, the conveyor belts hum and Santa's new cameras scan any corner 👁️.
+  Your mission ? Find santa's powerful code allowing him to copy every memory and gift sent to that factory.
+  You don't have much time before the Snow Sasquatches catch you.
+  What will you do once you get that Amulet of Recall? Sell it 💰? Or keep it to explore memories? 🗝️.
+  Or forge flans 🍮. Delicious flans 🍮.
+
+value: 200
+tags:
+  - web
+  - appsec
+
+flags:
+  - "FLAG-2-A-ne4t-log-file-with-s3nsitive-inform4tion-not-at-src-th0ugh"
+
+version: 0.1

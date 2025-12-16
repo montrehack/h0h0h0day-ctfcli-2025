@@ -1,0 +1,26 @@
+name: "S-HO!HO!HO! Solidarité !"
+author: "Sideni"
+category: web
+description: |
+    Chers lutins, nous sommes dans une impasse pour négocier avec le Père Noël notre prochaine convention collective.
+    Il refuse de reconnaître que la hausse du nombre d'enfants sages devrait être accompagnée d'une hausse de salaire.
+
+    La solution qu'on propose : augmenter le seuil de sagesse !
+
+    Le format de flag est : H0H0H0{du_magnifique_texte}
+
+    http://h0h0h0.sideni.xyz/
+value: 350
+type: standard
+
+files:
+    - solidarite.zip
+
+flags:
+    - "H0H0H0{Hacky_la_rue!A_nous_la_rue!}"
+
+tags:
+    - Web
+
+state: visible
+version: "1.0"

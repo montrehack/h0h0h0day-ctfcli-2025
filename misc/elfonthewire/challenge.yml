@@ -1,0 +1,11 @@
+name: Elf on the Wire
+author: "Monty"
+category: Misc
+description: One of Santa's elves made a phone call that was captured on the network. The call seems normal at first glance, but something important is hidden in the conversation.
+value: 100
+
+flags:
+      - flag{flag-youvebeengood}
+
+files:
+      - elfonthewire.pcap

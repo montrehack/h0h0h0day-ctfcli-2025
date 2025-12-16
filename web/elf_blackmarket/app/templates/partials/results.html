@@ -1,0 +1,13 @@
+<ul class="items">
+  {% if hits %}
+    {% for item in hits %}
+      <li class="item">
+        <h3>{{ item.name }}</h3>
+        <p class="desc">{{ item.description }}</p>
+        <p class="meta">Category: {{ item.category }} | Price: ${{ item.price }}</p>
+      </li>
+    {% endfor %}
+  {% else %}
+    <li>No items found.</li>
+  {% endif %}
+</ul>

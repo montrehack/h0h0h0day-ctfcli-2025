@@ -1,0 +1,24 @@
+name: "Recette secrete de Mere Noel 2"
+author: "majkiwi"
+category: reverse
+description: |
+    FR: Trahison!! Mère Noël a utilisé nos talents, mais ne nous a jamais partagé la vraie recette de ses biscuits!
+    Heureusement, nous avions quelques... contacts parmi les rennes. Rudolphe a intercepté une recette de son programme expérimental secret.
+    Retrouve la nouvelle clé secrète, et nous aurons enfin accès à toutes les recettes sublimes du Pôle Nord. Muhahahaha!
+    -
+    EN: Treachery!! Miss Claus used our talents, but never shared the true recipe for baking her cookies!
+    Thankfully, we have some... contacts through the reindeers. Rudolph intercepted a recipe from her secret, experimental program. 
+    Find the new secret key, and we will finally gain access to the tasty recipes of the North Pole. Muhahahaha!
+
+value: 150
+
+flags:
+    - flag{le_pole_nord_n_est_pas_trop_fort_en_crypto}
+
+files:
+    - files.zip
+
+tags:
+    - reverse
+    - crypto
+

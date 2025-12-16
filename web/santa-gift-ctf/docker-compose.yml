@@ -1,0 +1,9 @@
+services:
+  santa-ctf:
+    build: .
+    container_name: santa-gift-ctf
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+    restart: unless-stopped

@@ -1,0 +1,17 @@
+﻿name: "Printer 2"
+author: "ali31415"
+category: Physical
+description: |
+    Come see the printer next to the red hair
+
+value: 250
+type: standard
+
+flags:
+    - "flag{pr1nt3rs_4r3_c00l}"
+
+tags:
+    - Physical
+
+state: visible
+version: "0.1"

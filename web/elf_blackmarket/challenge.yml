@@ -1,0 +1,17 @@
+name: "Elves' Black Market"
+author: "Monchou"
+description: |
+  With all the tarrifs and trade wars going on, toys are getting more expensive and Santa is looking for ways to cut costs, notably by reducing the salary of its elves. 
+  To make ends meet, some of them have started a side business selling toys online to naughty "kids" all around the world.
+
+connection_info: http://challenges.montrehack.ca:36087
+category: web
+tags:
+  - web
+image: .
+value: 200
+flags:
+  - FLAG-2b42567a794646178227a6a62679274c
+hints:
+  - { content: "Maybe the toys have more than you can see", cost: 0 }
+  - { content: "Maybe the toys have more than you can see", cost: 0 }

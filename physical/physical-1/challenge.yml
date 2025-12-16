@@ -1,0 +1,17 @@
+﻿name: "Printer 1"
+author: "ali31415"
+category: Physical
+description: |
+    Come see the printer next to the red hair
+
+value: 150
+type: standard
+
+flags:
+    - "flagxmaslight"
+
+tags:
+    - Physical
+
+state: visible
+version: "0.1"
